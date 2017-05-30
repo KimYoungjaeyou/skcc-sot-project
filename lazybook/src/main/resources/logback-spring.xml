@@ -1,0 +1,33 @@
+<configuration>
+	<include resource="org/springframework/boot/logging/logback/defaults.xml" />
+	<springProfile name="local">
+		<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+			<encoder>
+				<pattern>${CONSOLE_LOG_PATTERN}</pattern>
+				<charset>utf8</charset>
+			</encoder>
+		</appender>
+		<root level="INFO">
+			<appender-ref ref="CONSOLE" />
+		</root>
+		<logger name="com.skcc.lazybook" level="DEBUG" />
+	</springProfile>
+
+	<springProfile name="dev">
+		<property name="LOG_FILE" value="/data1/logs/" />
+	</springProfile>
+
+	<springProfile name="dev">
+		<appender name="FILE" class="ch.qos.logback.core.FileAppender">
+			<encoder>
+				<pattern>${FILE_LOG_PATTERN}</pattern>
+			</encoder>
+			<file>${LOG_FILE}.log</file>
+		</appender>
+
+		<root level="INFO">
+			<appender-ref ref="FILE" />
+		</root>
+		<logger name="com.skcc.lazybook" level="DEBUG" />
+	</springProfile>
+</configuration>
