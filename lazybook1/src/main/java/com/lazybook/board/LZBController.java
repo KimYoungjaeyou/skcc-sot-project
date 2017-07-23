@@ -27,7 +27,7 @@ public class LZBController {
     }
     
     // ±Û ¾²±â 
-    @RequestMapping(value = "/boardForm")
+/*    @RequestMapping(value = "/boardForm")
    	public String boardForm() throws Exception {
         return "board/boardForm";
     }
@@ -84,5 +84,5 @@ public class LZBController {
         
         return "redirect:/boardList";
     }
-
+*/
 }
